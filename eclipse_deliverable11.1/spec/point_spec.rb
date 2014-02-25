@@ -15,10 +15,10 @@ describe 'points' do
 	end
 
 	it 'gives access to x' do
-		Point.new(1.0, 2.0).x.must_be_close_to 1.0
+		Point.new(1, 2).x.must_be_close_to 1
 	end
 
 	it 'gives access to y' do
-		Point.new(1.0, 2.0).y.must_be_close_to 2.0
+		Point.new(1, 2).y.must_be_close_to 2
 	end
 end
