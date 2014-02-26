@@ -6,13 +6,13 @@ require 'minitest/autorun'
 require_relative '../src/rectangle'
 require_relative '../src/point'
 
-describe 'rectangles' do
+describe 'rectangle' do
 	it 'does not initialize without args' do
-		lambda {a = Rectangle.new}.must_raise(ArgumentError)
+		lambda {a = Rectangle.new}.must_raise ArgumentError
 	end
 
 	it 'initializes with 2 points' do
-		rect(1, 2, 3, 4).must_be_instance_of(Rectangle)
+		rect(1, 2, 3, 4).must_be_instance_of Rectangle
 	end
 
 	it 'gives access to min_x' do

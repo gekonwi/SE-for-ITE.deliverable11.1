@@ -6,13 +6,13 @@ require 'minitest/autorun'
 require_relative '../src/triangle'
 require_relative '../src/point'
 
-describe 'triangles' do
+describe 'triangle' do
 	it 'does not initialize without args' do
-		lambda {a = Triangle.new}.must_raise(ArgumentError)
+		lambda {a = Triangle.new}.must_raise ArgumentError
 	end
 
 	it 'initializes with 3 points' do
-		tri(1, 2, 3, 4, 5, 6).must_be_instance_of(Triangle)
+		tri(1, 2, 3, 4, 5, 6).must_be_instance_of Triangle
 	end
 
 	it 'handles three equal points correctly' do

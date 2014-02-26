@@ -5,13 +5,13 @@ require 'minitest/autorun'
 
 require_relative '../src/point'
 
-describe 'points' do
+describe 'point' do
 	it 'does not initialize without args' do
-		lambda {a = Point.new}.must_raise(ArgumentError)
+		lambda {a = Point.new}.must_raise ArgumentError
 	end
 
 	it 'initializes with 2 args' do
-		Point.new(1,2).must_be_instance_of(Point)
+		Point.new(1,2).must_be_instance_of Point
 	end
 
 	it 'gives access to x' do
