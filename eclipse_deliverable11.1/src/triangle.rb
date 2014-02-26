@@ -8,9 +8,8 @@ class Triangle
 	end
 
 	def area
-		dividend = p1.x * (p2.y - p3.y)
-		dividend += p2.x * (p3.y - p1.y)
-		dividend += p3.x * (p1.y - p2.y)
+		dividend = (@p1.x - @p3.x)*(@p2.y - @p1.y)
+		dividend -= (@p1.x - @p2.x)*(@p3.y - @p1.y)
 		(dividend / 2.0).abs
 	end
 end
