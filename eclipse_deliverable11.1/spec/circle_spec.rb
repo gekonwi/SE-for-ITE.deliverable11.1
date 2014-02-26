@@ -27,6 +27,10 @@ describe 'circle' do
 		circle(1, 2, 3).center.y.must_equal 2
 	end
 	
+	it 'gives access to radius' do
+		circle(1, 2, 3).radius.must_equal 3
+	end
+
 	it 'refuses changes' do
 		proc {circle(1, 2, 3).radius = 5}.must_raise NoMethodError
 	end
