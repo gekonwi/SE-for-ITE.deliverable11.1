@@ -8,7 +8,7 @@ require_relative '../src/point'
 
 describe 'circle' do
 	it 'does not initialize without args' do
-		lambda {a = Circle.new}.must_raise ArgumentError
+		proc {a = Circle.new}.must_raise ArgumentError
 	end
 
 	it 'initializes with point and radius' do
@@ -20,7 +20,15 @@ describe 'circle' do
 	end
 
 	it 'does not initialize with negative radius' do
-		circle(1, -2, -3).must_raise ArgumentError
+		proc {circle(1, -2, -3)}.must_raise ArgumentError
+	end
+
+	it 'gives access to center' do
+		circle(1, 2, 3).center.y.must_equal 2
+	end
+	
+	it 'refuses changes' do
+		proc {circle(1, 2, 3).radius = 5}.must_raise NoMethodError
 	end
 
 	it 'handles a zero radius correctly' do

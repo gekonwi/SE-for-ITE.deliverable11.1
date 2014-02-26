@@ -8,7 +8,7 @@ require_relative '../src/point'
 
 describe 'rectangle' do
 	it 'does not initialize without args' do
-		lambda {a = Rectangle.new}.must_raise ArgumentError
+		proc {a = Rectangle.new}.must_raise ArgumentError
 	end
 
 	it 'initializes with 2 points' do
@@ -16,19 +16,23 @@ describe 'rectangle' do
 	end
 
 	it 'gives access to min_x' do
-		rect(1, 2, 3, 4).min_x.must_be_close_to 1
+		rect(1, 2, 3, 4).min_x.must_equal 1
 	end
 
 	it 'gives access to max_x' do
-		rect(1, 2, 3, 4).max_x.must_be_close_to 3
+		rect(1, 2, 3, 4).max_x.must_equal 3
 	end
 
 	it 'gives access to min_y' do
-		rect(1, 2, 3, 4).min_y.must_be_close_to 2
+		rect(1, 2, 3, 4).min_y.must_equal 2
 	end
 
 	it 'gives access to max_y' do
-		rect(1, 2, 3, 4).max_y.must_be_close_to 4
+		rect(1, 2, 3, 4).max_y.must_equal 4
+	end
+
+	it 'refuses changes' do
+		proc {rect(1, 2, 3, 4).max_y = 5}.must_raise NoMethodError
 	end
 
 	it 'handles two equal points correctly' do
